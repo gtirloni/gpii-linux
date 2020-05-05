@@ -6,7 +6,8 @@
   "bugs": "http://issues.gpii.net/browse/GPII",
   "homepage": "http://gpii.net/",
   "dependencies": {
-    "universal": "GPII/universal#08b73b801826be40f5516358b463d10d71260e9d"
+    "universal": "GPII/universal#08b73b801826be40f5516358b463d10d71260e9d",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "fluid-grunt-eslint": "18.1.1",
@@ -45,6 +46,9 @@
     "test:vagrant": "vagrant ssh -c 'cd /home/vagrant/sync; npm install && DISPLAY=:0 npm test'",
     "test:vagrantUnit": "vagrant ssh -c 'cd /home/vagrant/sync; npm install && DISPLAY=:0 npm run test:unit'",
     "test:vagrantAcceptance": "vagrant ssh -c 'cd /home/vagrant/sync; npm install && DISPLAY=:0 npm run test:acceptance'",
-    "posttest": "node node_modules/istanbul/lib/cli.js report lcov text-summary"
-  }
+    "posttest": "node node_modules/istanbul/lib/cli.js report lcov text-summary",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
